@@ -4,6 +4,7 @@
   pkgs,
   # project,
   inputs,
+  nillapkgs,
   ...
 }:
 {
@@ -65,8 +66,14 @@
     ++ [
       (inputs.ignis.packages.${pkgs.system}.ignis.override {
         enableAudioService = true;
+        enableBluetoothService = true;
         useGrassSass = true;
+        extraPackages = with pkgs; [
+          libevdev
+          python313Packages.libevdev
+        ];
       })
+      nillapkgs.goignis.${pkgs.system}
     ];
 
   xdg.terminal-exec = {

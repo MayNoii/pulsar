@@ -82,14 +82,17 @@ in
 
       apotris = {
         inherit systems;
-
         package = import ./packages/apotris;
       };
 
       sonicmania = {
         inherit systems;
-
         package = import ./packages/sonicmania;
+      };
+
+      goignis = {
+        inherit systems;
+        package = import ./packages/goignis;
       };
     };
   };
