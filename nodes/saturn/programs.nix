@@ -5,7 +5,7 @@
   # system,
   # project,
   # inputs,
-  nillapkgs,
+  # nillapkgs,
   ...
 }:
 {
@@ -95,7 +95,7 @@
       marksman
       dprint
       libreoffice
-      obsidian
+      # obsidian
       vlc
 
       wl-clipboard
@@ -147,7 +147,7 @@
     ])
     ++ [
       # inputs.ki-editor.packages.${system}.default
-      nillapkgs.sonicmania.${pkgs.system}
+      # nillapkgs.sonicmania.${pkgs.system}
 
       (pkgs.vscode.fhsWithPackages (
         pkgs: with pkgs; [

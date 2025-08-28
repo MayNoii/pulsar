@@ -25,9 +25,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f5ee2f101364b3131e7d3236d3a903ea9593a342",
-      "url": "https://github.com/ignis-sh/ignis/archive/f5ee2f101364b3131e7d3236d3a903ea9593a342.tar.gz",
-      "hash": "0wc10skssc28fgjlcl3c1v0k4dkgf7hpmk6cmsyp8q7syz04p4dc"
+      "revision": "3d016a86003ad9756cf10ba72640270dc288a8b0",
+      "url": "https://github.com/ignis-sh/ignis/archive/3d016a86003ad9756cf10ba72640270dc288a8b0.tar.gz",
+      "hash": "00cw7fgch2aigg2743z0yamjc9862dhydaid165l0m5pdii9hijh"
     },
     "nilla": {
       "type": "Git",
@@ -64,9 +64,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "ebbc1c05f786ae39bb5e04e57bf2c10c44a649e3",
-      "url": "https://github.com/nix-community/nix-index-database/archive/ebbc1c05f786ae39bb5e04e57bf2c10c44a649e3.tar.gz",
-      "hash": "156fri66yn0zmx0s0f19l8w73j1mzwg6yqy2ydyz03v661j739j3"
+      "revision": "52dec1cb33a614accb9e01307e17816be974d24d",
+      "url": "https://github.com/nix-community/nix-index-database/archive/52dec1cb33a614accb9e01307e17816be974d24d.tar.gz",
+      "hash": "1wcca9fraf82fzxadg543lm5g8qlnsg1fvb8xkbxz2ypwidc3x5d"
     },
     "nixpkgs": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "fbcf476f790d8a217c3eab4e12033dc4a0f6d23c",
-      "url": "https://github.com/nixos/nixpkgs/archive/fbcf476f790d8a217c3eab4e12033dc4a0f6d23c.tar.gz",
-      "hash": "0ah1hwz0gg9xn5bl1f4d25a2443k7r5vmk1ikmw9539nmgwbgly0"
+      "revision": "20075955deac2583bb12f07151c2df830ef346b4",
+      "url": "https://github.com/nixos/nixpkgs/archive/20075955deac2583bb12f07151c2df830ef346b4.tar.gz",
+      "hash": "1s3lxb33cwazlx72pygcbcc76bbgbhdil6q9bhqbzbjxj001zk0w"
     }
   },
   "version": 5

@@ -22,6 +22,7 @@ in
       experimental-features = [
         "nix-command"
         "flakes"
+        "lix-custom-sub-commands"
       ];
       # Cachix configurations
       # builders-use-substitutes = true;

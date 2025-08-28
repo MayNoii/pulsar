@@ -50,6 +50,7 @@ pretty: prettybuild switch
 
 [group("nom")]
 syu: update prettybuild (deploy "boot") diff
+    flatpak update
 
 [group("helper")]
 update:
