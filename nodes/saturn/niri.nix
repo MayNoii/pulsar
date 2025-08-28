@@ -23,13 +23,19 @@
 
     gnome = {
       games.enable = true;
+      sushi.enable = true;
     };
 
     gvfs.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
   };
 
   programs = {
     niri.enable = true;
+
+    evince.enable = true;
+    seahorse.enable = true;
   };
 
   environment.systemPackages =
@@ -38,7 +44,11 @@
       nautilus
       adwaita-icon-theme
       adwaita-icon-theme-legacy
+
+      decibels
+      loupe
       gradia
+      planify
 
       kdePackages.qtdeclarative
       quickshell
@@ -71,6 +81,7 @@
         extraPackages = with pkgs; [
           libevdev
           python313Packages.libevdev
+          python313Packages.open-meteo
         ];
       })
       nillapkgs.goignis.${pkgs.system}
@@ -84,4 +95,6 @@
       ];
     };
   };
+
+  security.pam.services.hyprlock = { };
 }
