@@ -4,6 +4,22 @@
   pkgs,
   ...
 }:
+# let
+#   # The following solution is taken from https://github.com/evanjs/nixos_cfg
+#   # Recursively constructs an attrset of a given folder, recursing on directories, value of attrs is the filetype
+#   getDir =
+#     dir:
+#     lib.mapAttrs (file: type: if type == "directory" then getDir "${dir}/${file}" else type) (
+#       builtins.readDir dir
+#     );
+
+#   # Collects all files of a directory as a list of strings of paths
+#   files =
+#     dir:
+#     lib.collect lib.isPath (
+#       lib.mapAttrsRecursive (path: type: dir + ("/" + (lib.concatStringsSep "/" path))) (getDir dir)
+#     );
+# in
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,7 +32,49 @@
   boot = {
     # kernelPackages = pkgs.linuxPackages_zen;
     loader = {
-      systemd-boot.enable = true;
+      # systemd-boot.enable = true;
+      limine = {
+        enable = true;
+        # extraConfig = ''
+        # '';
+        maxGenerations = 36;
+        style = {
+          graphicalTerminal = {
+            palette = "1e1e2e;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+            brightPalette = "585b70;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+            background = "1a1e1e2e";
+            foreground = "cdd6f4";
+            brightBackground = "585b70";
+            brightForeground = "cdd6f4";
+          };
+          wallpapers = [
+            /home/moon/.local/share/backgrounds/miloecute.png
+            /home/moon/.local/share/backgrounds/ArraialdoCabo-UHD.jpg
+            /home/moon/.local/share/backgrounds/catte.png
+            /home/moon/.local/share/backgrounds/wallhaven-2ymp5g_1920x1080.png
+            /home/moon/.local/share/backgrounds/waterway.png
+            /home/moon/.local/share/backgrounds/goals.png
+          ];
+        };
+        extraEntries = ''
+          /Arch Linux
+          //Primary
+              protocol: linux
+              path: boot():/vmlinuz-linux
+              cmdline: cryptdevice=UUID=e81fa56a-9b2b-472f-b802-a45bee8c19df:cryptlvm root=/dev/archvg/root rootfstype=btrfs add_efi_memmap
+              module_path: boot():/initramfs-linux.img
+
+          //Alternate
+              protocol: linux
+              path: boot():/vmlinuz-linux
+              cmdline: cryptdevice=UUID=Jut9J3-BKvM-5OvL-XVO5-Hf9C-USr6-BWQlZl:cryptlvm root=/dev/archvg/root rootfstype=btrfs add_efi_memmap
+              module_path: boot():/initramfs-linux.img
+
+          /Windows
+              protocol: efi
+              path: uuid(dc993828-fbae-4c9d-952f-ec00ea0f737e):/EFI/Microsoft/Boot/bootmgfw.efi
+        '';
+      };
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" ];
