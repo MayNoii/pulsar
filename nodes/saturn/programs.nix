@@ -4,7 +4,7 @@
   pkgs,
   # system,
   # project,
-  # inputs,
+  inputs,
   # nillapkgs,
   ...
 }:
@@ -43,6 +43,8 @@ in
       ];
     };
     gamemode.enable = true;
+
+    # firefox.enable = true;
   };
 
   services = {
@@ -93,25 +95,25 @@ in
       vim
       # emacs
       helix
+      ruff
       # nixd
-      # nixfmt-rfc-style
+      # nixfmt
       # statix
       lazygit
       ghostty
 
-      cargo
-      rustc
       # markdown-oxide
       marksman
       dprint
       libreoffice
       # obsidian
       vlc
+      # (writeShellScriptBin "vlc" ''
+      #   QT_QPA_PLATFORMTHEME=qt5ct ${lib.getExe vlc}
+      # '')
 
       wl-clipboard
       bat
-      bat-extras.batman
-      trashy
       gh
       glab
       fzf
@@ -138,10 +140,46 @@ in
 
       libqalculate
 
-      mpc-cli
+      mpc
       rmpc
+      cava
 
+      # calcurse
+      carl
+      dijo
+      dooit
+      dysk
+      fend
+      # gitu
+      gtrash
+      havn
+      heh
+      hoard
+      khal
+      # kalker
+      koji
+      mdp
+      # mprocs
+      numbat
+      ouch
+      # papis
+      pastel
+      vivid
+      dua
+      wormhole-rs
+      # procs
+      # pwdsafety
+      qrtool
+      # sampler
+      serie
+      typioca
+      wiremix
+      yazi
+      exiftool
+
+      vivaldi
       vesktop
+      # equibop
       krita
 
       steam-run
