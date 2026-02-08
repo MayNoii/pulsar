@@ -184,8 +184,10 @@ in
       # nix-eval-jobs
       just
 
-      wget
-      prettyping
+      nushell
+      carapace
+      inshellisense
+
       pv
       zip
       unzip

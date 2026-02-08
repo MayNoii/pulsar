@@ -14,9 +14,16 @@ in
 {
   programs = {
     fish.enable = true;
-    zsh.enable = true;
 
-    starship.enable = true;
+    zoxide.enable = true;
+    # starship = {
+    #   enable = true;
+    #   transientPrompt = {
+    #     enable = true;
+    #     left = "starship module character";
+    #   };
+    # };
+
     git.enable = true;
     direnv = {
       enable = true;
@@ -110,13 +117,13 @@ in
       fzf
       fd
       ripgrep
-      zoxide
       eza
       tealdeer
       btop
       nitch
-      killall
-      nushell
+      macchina
+      starship
+
       zk
       # bagels
 
@@ -128,6 +135,7 @@ in
       cowsay
       blahaj
       gay
+
       libqalculate
 
       mpc-cli
@@ -172,6 +180,7 @@ in
               (base.targetPkgs pkgs)
               ++ (with pkgs; [
                 pkg-config
+                udev
                 cmake
                 libtool
                 ncurses
@@ -183,15 +192,15 @@ in
                 openssl
 
                 python3
-                (poetry.withPlugins (
-                  ps: with ps; [
-                    poetry-plugin-shell
-                  ]
-                ))
+                # (poetry.withPlugins (
+                #   ps: with ps; [
+                #     poetry-plugin-shell
+                #   ]
+                # ))
                 uv
               ]);
             profile = "export FHS=1";
-            runScript = "fish";
+            runScript = "nu";
             extraOutputsToInstall = [ "dev" ];
           }
         )
