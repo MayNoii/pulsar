@@ -197,11 +197,37 @@ in
       inputs.nixpkgs-stable.${system}.sage
       # nillapkgs.sonicmania.${system}
 
-      (pkgs.vscode.fhsWithPackages (
+      # (pkgs.writeShellScriptBin "nomos-rebuild" ''
+      #   ${
+      #     pkgs.nixos-rebuild-ng.override {
+      #       nix = pkgs.symlinkJoin {
+      #         name = "nix-or-nom";
+      #         paths = [
+      #           (pkgs.writeShellScriptBin "nix-build" ''
+      #             ${pkgs.nix-output-monitor}/bin/nom-build $@
+      #           '')
+      #           config.nix.package
+      #         ];
+      #       };
+      #     }
+      #   }/bin/nixos-rebuild-ng "$@"
+      # '')
+
+      (pkgs.vscodium.fhsWithPackages (
         pkgs: with pkgs; [
-          nixfmt-rfc-style
+          nixfmt
           statix
           nixd
+
+          glib
+          zlib
+          libGL
+          fontconfig
+          xorg.libX11
+          libxkbcommon
+          freetype
+          dbus
+          # texliveMedium
         ]
       ))
 
