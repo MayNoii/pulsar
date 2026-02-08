@@ -25,13 +25,6 @@
   networking = {
     hostName = "saturn";
 
-    # pihole-doh.enable = true;
-
-    # nameservers = [
-    #   "127.0.0.1"
-    #   "::1"
-    # ];
-
     nftables.enable = true;
 
     networkmanager = {
@@ -201,19 +194,6 @@
                 }
               }
             }
-            {
-              matches = [
-                {
-                  node.name = "~alsa_output.*"
-                }
-              ]
-              actions = {
-                update-props = {
-                  api.alsa.period-size = 256
-                  api.alsa.headroom    = 8192
-                }
-              }
-            }
           ]
         '')
       ];
@@ -224,21 +204,25 @@
     fwupd.enable = true;
   };
 
-  security.rtkit = {
-    enable = true;
-    args = [
-      "--no-canary"
-      "--scheduling-policy=FIFO"
-      "--our-realtime-priority=89"
-      "--max-realtime-priority=88"
-      "--min-nice-level=-19"
-      "--rttime-usec-max=2000000"
-      "--users-max=100"
-      "--processes-per-user-max=1000"
-      "--threads-per-user-max=10000"
-      "--actions-burst-sec=10"
-      "--actions-per-burst-max=1000"
-    ];
+  security = {
+    pki.certificateFiles = [ ../../../../.local/share/mkcert/rootCA.pem ];
+
+    rtkit = {
+      enable = true;
+      # args = [
+      #   "--no-canary"
+      #   "--scheduling-policy=FIFO"
+      #   "--our-realtime-priority=89"
+      #   "--max-realtime-priority=88"
+      #   "--min-nice-level=-19"
+      #   "--rttime-usec-max=2000000"
+      #   "--users-max=100"
+      #   "--processes-per-user-max=1000"
+      #   "--threads-per-user-max=10000"
+      #   "--actions-burst-sec=10"
+      #   "--actions-per-burst-max=1000"
+      # ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
