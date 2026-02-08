@@ -66,11 +66,13 @@ in
       brightnessctl
       hyprlock
 
-      fuzzel
+      vicinae
+      # fuzzel
       swww
-      mako
-      clipse
-      # playerctl
+      dunst
+      # mako
+      # fnott
+      # clipse
       pavucontrol
       networkmanagerapplet
       bluetui
