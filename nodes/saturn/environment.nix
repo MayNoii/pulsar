@@ -93,11 +93,12 @@ in
       atkinson-hyperlegible-mono
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       maple-mono.truetype
-      nerd-fonts.space-mono
       font-awesome
       adwaita-fonts
+      libertinus
+      newcomputermodern
     ];
   };
 
