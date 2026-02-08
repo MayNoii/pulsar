@@ -194,6 +194,13 @@ in
       zip
       unzip
       chafa
+
+      wget
+      # prettyping
+      doggo
+
+      age
+      mkcert
     ];
   };
 
