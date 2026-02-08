@@ -7,6 +7,9 @@
   nillapkgs,
   ...
 }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
   services = {
     displayManager.ly = {
@@ -74,7 +77,7 @@
       polkit_gnome
     ])
     ++ [
-      (inputs.ignis.packages.${pkgs.system}.ignis.override {
+      (inputs.ignis.packages.${system}.ignis.override {
         enableAudioService = true;
         enableBluetoothService = true;
         useGrassSass = true;
@@ -84,7 +87,7 @@
           python313Packages.open-meteo
         ];
       })
-      nillapkgs.goignis.${pkgs.system}
+      nillapkgs.goignis.${system}
     ];
 
   xdg.terminal-exec = {

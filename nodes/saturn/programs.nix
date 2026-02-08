@@ -8,6 +8,9 @@
   # nillapkgs,
   ...
 }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
   programs = {
     fish.enable = true;

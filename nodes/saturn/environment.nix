@@ -7,7 +7,8 @@
   ...
 }:
 let
-  nilla-cli-package = inputs.nilla-cli.packages.nilla-cli.result.${pkgs.system};
+  system = pkgs.stdenv.hostPlatform.system;
+  nilla-cli-package = inputs.nilla-cli.packages.nilla-cli.result.${system};
 in
 {
   imports = [
