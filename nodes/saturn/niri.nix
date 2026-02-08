@@ -19,8 +19,10 @@ in
         animation = "colormix";
         hide_version_string = true;
         hide_key_hints = true;
-        # colormix_col1 = "0x00FF0030";
-        # colormix_col2 = "0x000030FF";
+        # gameoflife_fg = "0x0006";
+        colormix_col1 = "0x0006";
+        colormix_col2 = "0x0004";
+        colormix_col3 = "0x0001";
       };
     };
 
