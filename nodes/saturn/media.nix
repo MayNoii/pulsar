@@ -2,19 +2,19 @@
 {
   services = {
     sonarr = {
-      enable = true;
+      # enable = true;
       group = "qbittorrent";
       user = "servarr";
     };
 
     radarr = {
-      enable = true;
+      # enable = true;
       group = "qbittorrent";
       user = "servarr";
     };
 
     prowlarr = {
-      enable = true;
+      # enable = true;
       # group = "qbittorrent";
       # user = "servarr";
     };
@@ -64,8 +64,8 @@
     jellyfin-web
     jellyfin-ffmpeg
 
-    jellyfin-media-player
+    jellyfin-desktop
 
-    recyclarr
+    # recyclarr
   ];
 }
