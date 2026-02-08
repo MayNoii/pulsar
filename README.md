@@ -11,8 +11,10 @@ one the possible results is a pulsating neutron star, or pulsar.
 This repo uses `nilla` for dependency management, which is a very experimental
 tool with currently pretty bad documentation.
 
-Actual deployment is managed by `colmena`. The colmena-nilla wiring is very
-simple, and might change at some point.
+~~Actual deployment is managed by `colmena`. The colmena-nilla wiring is very
+simple, and might change at some point.~~
+
+Deployment is managed by the `saturn.nix` file, see the `justfile` for details.
 
 Do not expect the code in this repo to be any good.
 
