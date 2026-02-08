@@ -46,13 +46,14 @@ let
             >&2 echo "  nix shell $toplevel#''${attr%'.out'}"
           done <<< "$attrs"
           # tput sgr0
+          echo
           ;;
       esac
 
       return 127 # command not found should always exit with 127
     }
   '';
-  fish-wrapper = pkgs.writeShellScript "command-not-found" ''
+  not-installed = pkgs.writeShellScriptBin "not-installed" ''
     source ${bash-handler}
     command_not_found_handle "$@"
   '';
@@ -109,7 +110,7 @@ in
         lib.mkIf cfg.enableFishIntegration # fish
           ''
             function __fish_command_not_found_handler --on-event fish_command_not_found
-              ${fish-wrapper} $argv
+              ${not-installed}/bin/not-installed $argv
             end
           '';
     };
@@ -121,6 +122,7 @@ in
       ])
       ++ [
         nix-locate-bin
+        not-installed
       ]
     );
   };
