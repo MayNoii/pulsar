@@ -28,7 +28,7 @@ in
 
     gnome = {
       games.enable = true;
-      sushi.enable = true;
+      # sushi.enable = true;
     };
 
     gvfs.enable = true;
@@ -39,8 +39,13 @@ in
   programs = {
     niri.enable = true;
 
-    evince.enable = true;
     seahorse.enable = true;
+  };
+
+  qt = {
+    enable = true;
+    # platformTheme = "gnome";
+    style = "adwaita-dark";
   };
 
   environment.systemPackages =
@@ -52,11 +57,10 @@ in
 
       decibels
       loupe
+      papers
+      # gnome-secrets
       gradia
       planify
-
-      kdePackages.qtdeclarative
-      quickshell
 
       swayidle
       brightnessctl
@@ -73,10 +77,11 @@ in
 
       xwayland-satellite
 
-      (writers.writeBashBin "gnome-polkit" { } ''
-        ${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-      '')
-      polkit_gnome
+      # ${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+      # (writers.writeBashBin "gnome-polkit" { } ''
+      #   ${kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1
+      # '')
+      soteria
     ])
     ++ [
       (inputs.ignis.packages.${system}.ignis.override {
@@ -101,5 +106,8 @@ in
     };
   };
 
-  security.pam.services.hyprlock = { };
+  security = {
+    pam.services.hyprlock = { };
+    # soteria.enable = true;
+  };
 }
