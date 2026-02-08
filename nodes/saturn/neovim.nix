@@ -30,7 +30,10 @@
         finalAttrs: previousAttrs: {
           passthru = previousAttrs.passthru // {
             makeFhs =
-              { extraPython3Packages, extraPackages }:
+              {
+                extraPython3Packages ? _: [ ],
+                extraPackages ? _: [ ],
+              }:
               let
                 neovimConfig = final.neovimUtils.makeNeovimConfig {
                   inherit extraPython3Packages;
@@ -49,6 +52,7 @@
                       # ld-linux-x86-64-linux.so.2 and others
                       glibc
                       lua5_1
+                      luarocks
                       python3
                       go
                       tree-sitter
@@ -88,34 +92,37 @@
 
   environment.systemPackages = [
     (pkgs.neovim.makeFhs {
-      extraPython3Packages =
-        p: with p; [
-          pynvim
-          debugpy
-          ipython
-          ipykernel
-          ilua
-          numpy
-          pandas
-          # Molten-nvim requirements
-          jupyter-client
-          cairosvg # for image rendering
-          pnglatex
-          plotly
-          kaleido
-          pyperclip
-          nbformat
-          pillow
-          requests
-          websocket-client
-        ];
+      # extraPython3Packages =
+      #   p: with p; [
+      #     pynvim
+      #     debugpy
+      #     ipython
+      #     ipykernel
+      #     ilua
+      #     numpy
+      #     pandas
+      #     # Molten-nvim requirements
+      #     jupyter-client
+      #     cairosvg # for image rendering
+      #     pnglatex
+      #     plotly
+      #     kaleido
+      #     pyperclip
+      #     nbformat
+      #     pillow
+      #     requests
+      #     websocket-client
+      #   ];
       extraPackages =
         pkgs: with pkgs; [
-          icu
+          # icu
           imagemagick
-          python3Packages.jupytext
-          python3Packages.pylatexenc
-          uv
+          # python3Packages.jupytext
+          # python3Packages.pylatexenc
+          # uv
+          tectonic
+          ghostscript
+          ast-grep
         ];
     })
   ];
