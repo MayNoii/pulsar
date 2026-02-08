@@ -30,7 +30,7 @@
   # programs.virt-manager.enable = true;
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       # systemd-boot.enable = true;
       limine = {
@@ -94,7 +94,13 @@
 
   time.timeZone = "America/Sao_Paulo";
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    # inputMethod = {
+    #   enable = true;
+    #   type = "ibus";
+    # };
+  };
 
   console = lib.mkDefault {
     earlySetup = true;
@@ -140,7 +146,7 @@
   };
 
   hardware = {
-    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     bluetooth.enable = true;
 
     nvidia = {
@@ -182,7 +188,8 @@
             "https://dns.cloudflare.com/dns-query"
             "https://doh.sandbox.opendns.com/dns-query"
             # "https://dns.bebasid.com/unfiltered"
-            "https://unfiltered.adguard-dns.com/dns-query"
+            # "https://unfiltered.adguard-dns.com/dns-query"
+            "quic://unfiltered.adguard-dns.com"
           ];
         };
       };
