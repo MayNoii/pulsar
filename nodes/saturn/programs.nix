@@ -126,7 +126,6 @@
       blahaj
       gay
       libqalculate
-      sage
 
       mpc-cli
       rmpc
@@ -146,8 +145,8 @@
       '')
     ])
     ++ [
-      # inputs.ki-editor.packages.${system}.default
-      # nillapkgs.sonicmania.${pkgs.system}
+      inputs.nixpkgs-stable.${system}.sage
+      # nillapkgs.sonicmania.${system}
 
       (pkgs.vscode.fhsWithPackages (
         pkgs: with pkgs; [

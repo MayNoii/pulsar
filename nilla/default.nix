@@ -3,7 +3,7 @@ let
   pins = import ../npins;
 
   nixpkgs-flake = config.inputs.flake-compat.result.load {
-    src = config.inputs.nixpkgs.src;
+    inherit (config.inputs.nixpkgs) src;
   };
 
   systems = [
@@ -13,12 +13,12 @@ let
 
   loaders = {
     nixpkgs = "nixpkgs";
+    nixpkgs-stable = "nixpkgs";
     nilla-cli = "nilla";
     nilla = "nilla";
     nix-index-database = "legacy";
     lix-module = "raw";
     ignis = "flake";
-    # ignis-gvc = "raw";
     flake-compat = "legacy";
   };
 
@@ -37,7 +37,7 @@ let
       };
     };
 
-    # nixpkgs-unstable = settings.nixpkgs;
+    nixpkgs-stable = settings.nixpkgs;
   };
 in
 {
@@ -63,7 +63,7 @@ in
             sl
 
             nixd
-            nixfmt-rfc-style
+            nixfmt
             statix
           ];
         };
