@@ -27,14 +27,16 @@ in
       ];
       # Cachix configurations
       # builders-use-substitutes = true;
-      extra-substituters = [
+      substituters = [
         # "https://hyprland.cachix.org"
         # "https://nixpkgs-wayland.cachix.org"
         # "https://helix.cachix.org"
         # "https://anyrun.cachix.org"
         # "https://viperml.cachix.org"
         # "https://nix-gaming.cachix.org"
-        "https://cache.lix.systems"
+        # "https://cache.lix.systems"
+        # "https://vicinae.cachix.org"
+        "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -43,7 +45,9 @@ in
         # "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
         # "viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8="
         # "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-        "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+        # "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+        # "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       trusted-users = [
         "root"
@@ -70,6 +74,7 @@ in
       "qbittorrent"
       "pipewire"
       "input"
+      "dialout"
     ];
     shell = pkgs.bash;
     packages = with pkgs; [
@@ -152,6 +157,7 @@ in
           just
           bash
           nushell
+          topgrade
           lixPackageSets.latest.colmena
           nvd
           npins
@@ -165,6 +171,7 @@ in
       nilla-cli-package
       npins
       lixPackageSets.latest.colmena
+      topgrade
 
       nvd
       nix-output-monitor
@@ -188,7 +195,6 @@ in
 
   # Set sudo-rs as our default sudo provider
   security = {
-    # soteria.enable = true;
     sudo.enable = false;
     sudo-rs = {
       enable = true;
