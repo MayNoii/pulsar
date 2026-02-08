@@ -136,8 +136,6 @@ in
       NIXOS_OZONE_WL = "1";
       # PIX_DEFSHELL = "fish";
       # man colors
-      MANPAGER = "less -R --use-color -Dd+m -Du+b";
-      MANROFFOPT = "-P -c";
       # GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
       # FIXME: This is due to an upstream bug with Nvidia drivers.
       # GSK_RENDERER = "ngl";

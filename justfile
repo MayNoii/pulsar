@@ -13,48 +13,59 @@ help:
     ${BOLD}Commands:${RESET}"
 
     just --list --unsorted --list-heading ''
+    echo
+
+# alias b := build
+# alias a := apply
+# alias d := deploy
 
 alias b := build
-alias a := apply
-alias d := deploy
-alias pb := prettybuild
-alias up := update
+alias os := rebuild
+alias up := upgrade
+alias s := sync
 alias man := manual
 alias ls := list
 alias in := inputs
 
-[group("colmena")]
+export MANPAGER := "less -R --use-color -Dd+m -Du+b"
+export MANROFFOPT := "-P -c"
+
+# [group("colmena")]
+# build:
+#     colmena build --evaluator streaming
+# [group("colmena")]
+# apply TYPE:
+#     colmena apply --evaluator streaming {{ TYPE }}
+# [group("colmena")]
+# deploy TYPE:
+#     colmena apply-local --sudo {{ TYPE }}
+# [group("colmena")]
+# switch: (deploy "switch") diff
+# [group("colmena")]
+# all: build (apply "boot") (deploy "boot") diff
+
+[group("system")]
 build:
-    colmena build --evaluator streaming
+    nom build -E '(import ./saturn.nix).toplevel' --no-link --impure
+# dunstify "Rebuild ongoing" "Please remember to input your password" -a "nia"
 
-[group("colmena")]
-apply TYPE:
-    colmena apply --evaluator streaming {{ TYPE }}
+[group("system")]
+rebuild +A:
+    run0 nixos-rebuild {{ A }} -f saturn.nix --no-flake
 
-[group("colmena")]
-deploy TYPE:
-    colmena apply-local --sudo {{ TYPE }}
+[group("system")]
+pretty: build (rebuild "switch") diff
 
-[group("colmena")]
-switch: (deploy "switch") diff
-
-[group("colmena")]
-all: build (apply "boot") (deploy "boot") diff
-
-[group("nom")]
-prettybuild:
-    nom build --file build.nix --no-link
-
-[group("nom")]
-pretty: prettybuild switch
-
-[group("nom")]
-syu: update prettybuild (deploy "boot") diff
-    flatpak update
+[group("system")]
+upgrade: build (rebuild "boot") topgrade diff
 
 [group("helper")]
-update:
+sync:
     npins update
+
+[group("helper")]
+topgrade:
+    topgrade --disable=nix --disable=system
 
 [group("helper")]
 pins +ARGS:
@@ -97,9 +108,9 @@ diff n="1":
 [group("info")]
 inputs:
     #!/usr/bin/env nu
-    cat ./npins/sources.json | from json | get pins | transpose name info | get name
+    open ./npins/sources.json | get pins | transpose name info | get name
 
 [group("info")]
 deps:
     #!/usr/bin/env nu
-    cat ./npins/sources.json | from json | get pins
+    open ./npins/sources.json | get pins | table -e
