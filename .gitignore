@@ -1,2 +1,3 @@
 .direnv/
 result/
+nodes/saturn/glance.nix

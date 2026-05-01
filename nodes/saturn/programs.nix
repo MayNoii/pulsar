@@ -86,7 +86,7 @@ in
   imports = [
     # ./neovim.nix
     ./media.nix
-    ./glance.nix
+    # ./glance.nix
   ];
 
   environment.systemPackages =
@@ -100,6 +100,7 @@ in
       # nixfmt
       # statix
       lazygit
+      jujutsu
       ghostty
 
       # markdown-oxide
