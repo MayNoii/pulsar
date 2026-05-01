@@ -20,6 +20,10 @@ in
   nix = {
     package = pkgs.lixPackageSets.latest.lix;
     settings = {
+      deprecated-features = [
+        "or-as-identifier"
+        "broken-string-escape"
+      ];
       experimental-features = [
         "nix-command"
         "flakes"
@@ -60,7 +64,21 @@ in
     # nixPath = lib.mkForce [ "nixpkgs=flake:nixpkgs" ];
     # channel.enable = false;
   };
-  nixpkgs.flake.source = lib.mkForce project.inputs.nixpkgs.src;
+  nixpkgs = {
+    # overlays = [
+    #   (final: prev: {
+    #     inherit (prev.lixPackageSets.latest)
+    #       nixpkgs-review
+    #       nix-eval-jobs
+    #       nix-fast-build
+    #       nix-direnv
+    #       colmena
+    #       ;
+    #   })
+    # ];
+
+    flake.source = lib.mkForce project.inputs.nixpkgs.src;
+  };
 
   users.users.moon = {
     isNormalUser = true;
@@ -152,24 +170,24 @@ in
     # pathsToLink = [ "/share/nautilus-python/extensions" ];
 
     systemPackages = with pkgs; [
-      (writeShellApplication {
-        name = "nia";
+      # (writeShellApplication {
+      #   name = "nia";
 
-        runtimeInputs = [
-          just
-          bash
-          nushell
-          topgrade
-          lixPackageSets.latest.colmena
-          nvd
-          npins
-          nilla-cli-package
-        ];
+      #   runtimeInputs = [
+      #     just
+      #     bash
+      #     nushell
+      #     topgrade
+      #     lixPackageSets.latest.colmena
+      #     nvd
+      #     npins
+      #     nilla-cli-package
+      #   ];
 
-        text = ''
-          just --justfile /home/moon/Documents/pulsar/justfile "$@"
-        '';
-      })
+      #   text = ''
+      #     just --justfile /home/moon/Documents/pulsar/justfile "$@"
+      #   '';
+      # })
       nilla-cli-package
       npins
       lixPackageSets.latest.colmena
@@ -178,9 +196,12 @@ in
       nvd
       nix-output-monitor
       nix-tree
+      nixd
+      nixfmt
+      statix
       # nix-melt
       # nix-inspect
-      nix-du
+      # nix-du
       nix-btm
       lixPackageSets.latest.nix-eval-jobs
       # nix-eval-jobs

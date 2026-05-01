@@ -61,10 +61,6 @@ in
         pkgs.mkShell {
           packages = with pkgs; [
             sl
-
-            nixd
-            nixfmt
-            statix
           ];
         };
     };

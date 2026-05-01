@@ -118,7 +118,11 @@ in
     environment.systemPackages = lib.mkIf cfg.extraBins (
       (with nix-index-pkgs; [
         nix-index-with-db
-        comma-with-db
+        (comma-with-db.override {
+          comma = pkgs.comma.override {
+            nix = config.nix.package;
+          };
+        })
       ])
       ++ [
         nix-locate-bin
