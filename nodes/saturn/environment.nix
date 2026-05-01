@@ -85,7 +85,7 @@ in
   users.users.moon = {
     isNormalUser = true;
     uid = 1000;
-    description = "Munds";
+    description = "May";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -160,7 +160,9 @@ in
     };
     variables = {
       EDITOR = "hx";
+      TERMINAL = "ghostty";
       NIXOS_OZONE_WL = "1";
+      NIA_OS_CONFIG = "/home/moon/Documents/pulsar";
       # PIX_DEFSHELL = "fish";
       # man colors
       # GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
@@ -168,6 +170,11 @@ in
       # GSK_RENDERER = "ngl";
 
       COMMA_PICKER = "fzf";
+
+      # FIXME: these should be in niri config but that's not working?
+      GTK_IM_MODULE = "simple";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      SYSTEMD_TINT_BACKGROUND = "0";
     };
     # pathsToLink = [ "/share/nautilus-python/extensions" ];
 

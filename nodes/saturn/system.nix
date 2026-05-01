@@ -78,6 +78,10 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" ];
+
+    # extraModprobeConfig = ''
+    #   options nvidia "NVreg_EnableGpuFirmware=0"
+    # '';
   };
 
   networking = {
@@ -152,7 +156,12 @@
     nvidia = {
       open = true;
 
-      powerManagement.enable = true;
+      powerManagement = {
+        enable = true;
+        # finegrained = true;
+      };
+
+      # nvidiaPersistenced = true;
 
       prime = {
         offload = {
