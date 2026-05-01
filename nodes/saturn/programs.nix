@@ -156,7 +156,7 @@ in
       havn
       heh
       hoard
-      khal
+      # khal
       # kalker
       koji
       mdp
@@ -181,12 +181,15 @@ in
       vivaldi
       vesktop
       # equibop
-      krita
+      # krita
+      ungoogled-chromium
 
       steam-run
 
-      sm64coopdx
+      # sm64coopdx
       ringracers
+      lumafly
+      archipelago
       # nova.apotris
 
       (writers.writeHaskellBin "missiles" { libraries = [ haskellPackages.acme-missiles ]; } ''

@@ -118,7 +118,7 @@ in
       font-awesome
       adwaita-fonts
       libertinus
-      newcomputermodern
+      # newcomputermodern
     ];
   };
 
