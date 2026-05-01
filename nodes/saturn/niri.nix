@@ -34,7 +34,11 @@ in
 
     gvfs.enable = true;
     upower.enable = true;
-    power-profiles-daemon.enable = true;
+    tlp = {
+      enable = true;
+      pd.enable = true;
+    };
+    thermald.enable = true;
   };
 
   programs = {
