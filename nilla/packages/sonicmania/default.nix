@@ -18,6 +18,7 @@
   tinyxml2,
   asio,
   xorg,
+  libX11,
   libpulseaudio,
   vulkan-loader,
   vulkan-headers,
@@ -117,7 +118,7 @@ stdenv.mkDerivation {
     asio
     xorg.libXext
     xorg.libXrandr
-    xorg.libX11
+    libX11
     xorg.libXfixes
     xorg.libXi
     xorg.libXScrnSaver

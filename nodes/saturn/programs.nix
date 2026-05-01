@@ -224,7 +224,7 @@ in
           zlib
           libGL
           fontconfig
-          xorg.libX11
+          libX11
           libxkbcommon
           freetype
           dbus

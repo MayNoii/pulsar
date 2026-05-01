@@ -7,7 +7,7 @@
   buildGoModule,
   fetchFromGitHub,
 
-# more dependencies would go here...
+  # more dependencies would go here...
 }: # this means end of named parameters
 
 # Now, the definition of your package.

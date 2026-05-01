@@ -3,7 +3,7 @@
   lib,
   fetchFromGitHub,
   kernel,
-# kmod,
+  # kmod,
 }:
 
 stdenv.mkDerivation rec {
