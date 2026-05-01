@@ -113,7 +113,7 @@ in
       #   QT_QPA_PLATFORMTHEME=qt5ct ${lib.getExe vlc}
       # '')
 
-      wl-clipboard
+      wl-clipboard-rs
       bat
       gh
       glab

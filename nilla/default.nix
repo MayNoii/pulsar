@@ -19,6 +19,7 @@ let
     nix-index-database = "legacy";
     lix-module = "raw";
     ignis = "flake";
+    niri-flake = "flake";
     flake-compat = "legacy";
   };
 
