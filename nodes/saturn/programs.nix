@@ -101,6 +101,8 @@ in
       # statix
       lazygit
       jujutsu
+      delta
+      mergiraf
       ghostty
 
       # markdown-oxide
@@ -179,6 +181,7 @@ in
       exiftool
 
       vivaldi
+      firefox
       vesktop
       # equibop
       # krita
