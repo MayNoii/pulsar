@@ -37,5 +37,4 @@ pretty arbitrary, so far.
 ## Nia
 
 There is a `justfile` containing some common commands I use for maintaining this
-repository. My system configuration defines a `nia` command that wraps over said
-Justfile.
+repository.
