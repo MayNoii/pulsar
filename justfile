@@ -24,12 +24,6 @@ alias rb := rebuild
 alias up := upgrade
 alias s := sync
 alias top := topgrade
-# alias man := manual
-# alias ls := list
-# alias in := inputs
-
-# export MANPAGER := "less -R --use-color -Dd+m -Du+b"
-# export MANROFFOPT := "-P -c"
 
 # [group("colmena")]
 # build:
@@ -50,17 +44,9 @@ upgrade: (rebuild "boot")
 build:
     nix build --expr '(import ./saturn.nix).toplevel' --no-link --impure
 
-# dunstify "Rebuild ongoing" "Please remember to input your password" -a "nia"
-
 # [group("system")]
 # rebuild +A:
 #     run0 nixos-rebuild {{ A }} -f saturn.nix --no-flake
-
-# [group("system")]
-# pretty: build (rebuild "switch") diff
-
-# [group("system")]
-# upgrade: build (rebuild "boot") topgrade diff
 
 [group("helper")]
 sync:
@@ -82,47 +68,9 @@ col +ARGS:
 out +ARGS:
     nilla {{ ARGS }}
 
-# [group("helper")]
-# which BIN:
-#     readlink -f $(which {{ BIN }})
-
-# [group("helper")]
-# closure BIN:
-#     nix-tree $(readlink -f $(which {{ BIN }}))
-
-# [group('info')]
-# manual:
-#     man configuration.nix
-
 [group("helper")]
 repl:
     colmena repl
-
-# [group('info')]
-# list *F:
-#     nvd list -r /nix/var/nix/profiles/system {{ F }}
-
-# [group("info")]
-# diff n="1":
-#     #!/usr/bin/env nu
-#     ls /nix/var/nix/profiles/system-*
-#         | get name
-#         | sort -nr
-#         | nvd diff ($in | get {{ n }}) ($in | first)
-
-# [group("info")]
-# inputs:
-#     #!/usr/bin/env nu
-#     open ./npins/sources.json | get pins | transpose name info | get name
-
-# [group("info")]
-# deps:
-#     #!/usr/bin/env nu
-#     open ./npins/sources.json | get pins | table -e
-
-# [group("info")]
-# tree:
-#     nix-tree
 
 [group("helper")]
 np:
