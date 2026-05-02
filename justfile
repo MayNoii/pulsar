@@ -82,14 +82,6 @@ col +ARGS:
 out +ARGS:
     nilla {{ ARGS }}
 
-[group("helper")]
-git:
-    lazygit
-
-[group("helper")]
-edit:
-    $EDITOR .
-
 # [group("helper")]
 # which BIN:
 #     readlink -f $(which {{ BIN }})
