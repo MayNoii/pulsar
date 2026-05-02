@@ -47,6 +47,11 @@
             brightBackground = "585b70";
             brightForeground = "cdd6f4";
           };
+          interface = {
+            brandingColor = "94e2d5";
+            helpColor = "f9e2af";
+            helpColorBright = "fab387";
+          };
           wallpapers = [
             /home/moon/.local/share/backgrounds/miloecute.png
             /home/moon/.local/share/backgrounds/ArraialdoCabo-UHD.jpg
