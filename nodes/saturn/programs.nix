@@ -72,8 +72,8 @@ in
       serverConfig = {
         LegalNotice.Accepted = true;
         Preferences.WebUI = {
-          AlternativeUIEnabled = true;
-          RootFolder = "${pkgs.vuetorrent}/share/vuetorrent";
+          # AlternativeUIEnabled = true;
+          # RootFolder = "${pkgs.vuetorrent}/share/vuetorrent";
           LocalHostAuth = false;
         };
       };
