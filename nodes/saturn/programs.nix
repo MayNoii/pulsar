@@ -201,7 +201,8 @@ in
       '')
     ])
     ++ [
-      inputs.nixpkgs-stable.${system}.sage
+      # inputs.nixpkgs-stable.${system}.sage
+
       # nillapkgs.sonicmania.${system}
 
       # (pkgs.writeShellScriptBin "nomos-rebuild" ''

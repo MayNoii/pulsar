@@ -45,7 +45,7 @@ in
     niri = {
       enable = true;
       useNautilus = true;
-      package = inputs.niri-flake.packages.${system}.niri-unstable;
+      # package = inputs.niri-flake.packages.${system}.niri-unstable;
       # package = pkgs.niri.overrideAttrs (
       #   finalAttrs: previousAttrs: rec {
       #     name = "niri-${version}";

@@ -55,19 +55,6 @@
       "url": "https://github.com/nilla-nix/cli/archive/7bd8639687567e3629471d952b6b732691c0890b.tar.gz",
       "hash": "sha256-lNxeYMSLTbe/yp4ElIujaP1bB0BfhGLt+6xgV2XWUtE="
     },
-    "niri-flake": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "sodiboo",
-        "repo": "niri-flake"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "6e900d2d23f32b88a1d97c38d1f24413cce66c90",
-      "url": "https://github.com/sodiboo/niri-flake/archive/6e900d2d23f32b88a1d97c38d1f24413cce66c90.tar.gz",
-      "hash": "sha256-M/FR4z0m6KyN1wJpHbUKrF1T/EJKP1qSXdJOujkS5SE="
-    },
     "nix-index-database": {
       "type": "Git",
       "repository": {
@@ -93,19 +80,6 @@
       "revision": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
       "url": "https://github.com/nixos/nixpkgs/archive/549bd84d6279f9852cae6225e372cc67fb91a4c1.tar.gz",
       "hash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU="
-    },
-    "nixpkgs-stable": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "nixos",
-        "repo": "nixpkgs"
-      },
-      "branch": "nixos-25.11",
-      "submodules": false,
-      "revision": "0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5",
-      "url": "https://github.com/nixos/nixpkgs/archive/0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5.tar.gz",
-      "hash": "sha256-q/nkKLDtHIyLjZpKhWk3cSK5IYsFqtMd6UtXF3ddjgA="
     }
   },
   "version": 7

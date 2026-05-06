@@ -13,13 +13,13 @@ let
 
   loaders = {
     nixpkgs = "nixpkgs";
-    nixpkgs-stable = "nixpkgs";
+    # nixpkgs-stable = "nixpkgs";
     nilla-cli = "nilla";
     nilla = "nilla";
     nix-index-database = "legacy";
     lix-module = "raw";
     ignis = "flake";
-    niri-flake = "flake";
+    # niri-flake = "flake";
     flake-compat = "legacy";
   };
 
@@ -38,7 +38,7 @@ let
       };
     };
 
-    nixpkgs-stable = settings.nixpkgs;
+    # nixpkgs-stable = settings.nixpkgs;
   };
 in
 {
