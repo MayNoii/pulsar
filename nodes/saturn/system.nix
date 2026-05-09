@@ -40,17 +40,17 @@
         maxGenerations = 36;
         style = {
           graphicalTerminal = {
-            palette = "232a2e;f57f82;cbe3b3;f7a182;b2caed;f3c0e5;b3e3ca;f8f9e8";
-            brightPalette = "4a585c;f57f82;cbe3b3;f7a182;b2caed;f3c0e5;b3e3ca;f8f9e8";
-            background = "1a232a2e";
-            foreground = "f8f9e8";
-            brightBackground = "4a585c";
-            brightForeground = "f8f9e8";
+            palette = "1e1e2e;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+            brightPalette = "585b70;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
+            background = "1a1e1e2e";
+            foreground = "cdd6f4";
+            brightBackground = "585b70";
+            brightForeground = "cdd6f4";
           };
           interface = {
-            brandingColor = "b3e3ca";
-            helpColor = "f5d098";
-            helpColorBright = "f7a182";
+            brandingColor = "94e2d5";
+            helpColor = "f9e2af";
+            helpColorBright = "fab387";
           };
           wallpapers = [
             /home/moon/.local/share/backgrounds/miloecute.png
@@ -117,23 +117,23 @@
     # packages = with pkgs; [ terminus_font ];
     useXkbConfig = true;
     colors = [
-      "232a2e" # base
-      "f7a182" # red
-      "cbe3b3" # green
-      "4a585c" # surface2 (yellow)
-      "b2caed" # blue
-      "f3c0e5" # pink
-      "b3e3ca" # teal
-      "adc9bc" # subtext1
+      "1e1e2e" # base
+      "f38ba8" # red
+      "a6e3a1" # green
+      "585b70" # surface2 (yellow)
+      "89b4fa" # blue
+      "cba6f7" # pink
+      "94e2d5" # teal
+      "bac2de" # subtext1
 
-      "f5d098" # yellow (surface2)
-      "f57f82" # red
-      "cbe3b3" # green
-      "4a585c" # surface2 (yellow)
-      "b2caed" # blue
-      "f3c0e5" # pink
-      "b3e3ca" # teal
-      "96b4aa" # subtext0
+      "f9e2af" # yellow (surface2)
+      "f38ba8" # red
+      "a6e3a1" # green
+      "585b70" # surface2 (yellow)
+      "89b4fa" # blue
+      "cba6f7" # pink
+      "94e2d5" # teal
+      "a6adc8" # subtext0
       # "000000" # base
       # "ff0030" # red
       # "30ff00" # green

@@ -21,7 +21,7 @@ in
         hide_version_string = true;
         hide_key_hints = true;
         # gameoflife_fg = "0x0006";
-        colormix_col1 = "0x0007";
+        colormix_col1 = "0x0006";
         colormix_col2 = "0x0004";
         colormix_col3 = "0x0001";
       };
