@@ -4,13 +4,13 @@
   pkgs,
   # system,
   # project,
-  inputs,
+  # inputs,
   # nillapkgs,
   ...
 }:
-let
-  system = pkgs.stdenv.hostPlatform.system;
-in
+# let
+#   system = pkgs.stdenv.hostPlatform.system;
+# in
 {
   programs = {
     fish.enable = true;
