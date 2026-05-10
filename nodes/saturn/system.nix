@@ -30,6 +30,17 @@
   # programs.virt-manager.enable = true;
 
   boot = {
+    extraModprobeConfig = ''
+      install esp4 ${pkgs.coreutils}/bin/false
+      install esp6 ${pkgs.coreutils}/bin/false
+      install rxrpc ${pkgs.coreutils}/bin/false
+    '';
+    blacklistedKernelModules = [
+      "esp4"
+      "esp6"
+      "rxrpc"
+    ];
+
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       # systemd-boot.enable = true;
