@@ -179,6 +179,9 @@
       wiremix
       yazi
       exiftool
+      # mimeopen
+      dotbot
+      perl5Packages.FileMimeInfo
 
       vivaldi
       firefox
@@ -202,6 +205,7 @@
     ])
     ++ [
       # inputs.nixpkgs-stable.${system}.sage
+      # nillapkgs.lnko.${system}
 
       # nillapkgs.sonicmania.${system}
 
