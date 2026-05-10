@@ -101,7 +101,12 @@ in
       hello
     ];
   };
+
   # documentation.man.generateCaches = false; # Disable the fish generation
+  documentation.man = {
+    man-db.enable = false;
+    mandoc.enable = true;
+  };
 
   fonts = {
     fontconfig = {
