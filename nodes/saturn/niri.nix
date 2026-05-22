@@ -9,7 +9,6 @@
 }:
 let
   system = pkgs.stdenv.hostPlatform.system;
-  # qs-package = pkgs.callPackage "${inputs.quickshell}/default.nix" {};
 in
 {
   services = {
@@ -70,14 +69,6 @@ in
     };
 
     seahorse.enable = true;
-
-    dms-shell = {
-      # enable = true;
-      # quickshell.package = qs-package;
-      enableDynamicTheming = false;
-      enableCalendarEvents = false;
-      enableVPN = false;
-    };
   };
 
   qt = {
@@ -92,6 +83,7 @@ in
       nautilus
       adwaita-icon-theme
       adwaita-icon-theme-legacy
+      xprop
 
       decibels
       loupe
@@ -103,6 +95,7 @@ in
       swayidle
       brightnessctl
       hyprlock
+      hyprpicker
 
       vicinae
       # fuzzel

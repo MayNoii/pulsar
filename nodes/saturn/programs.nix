@@ -16,13 +16,6 @@
     fish.enable = true;
 
     zoxide.enable = true;
-    # starship = {
-    #   enable = true;
-    #   transientPrompt = {
-    #     enable = true;
-    #     left = "starship module character";
-    #   };
-    # };
 
     git.enable = true;
     direnv = {
@@ -44,7 +37,7 @@
     };
     gamemode.enable = true;
 
-    # firefox.enable = true;
+    firefox.enable = true;
   };
 
   services = {
@@ -61,12 +54,6 @@
       mpd-mpris = true;
     };
 
-    # transmission = {
-    #   enable = true;
-    #   package = pkgs.transmission_4;
-    #   openPeerPorts = true;
-    #   webHome = pkgs.flood-for-transmission;
-    # };
     qbittorrent = {
       enable = true;
       serverConfig = {
@@ -111,9 +98,6 @@
       libreoffice
       # obsidian
       vlc
-      # (writeShellScriptBin "vlc" ''
-      #   QT_QPA_PLATFORMTHEME=qt5ct ${lib.getExe vlc}
-      # '')
 
       wl-clipboard-rs
       bat
@@ -183,8 +167,7 @@
       dotbot
       perl5Packages.FileMimeInfo
 
-      vivaldi
-      firefox
+      # vivaldi
       vesktop
       # equibop
       # krita
@@ -192,7 +175,7 @@
 
       steam-run
 
-      # sm64coopdx
+      sm64coopdx
       ringracers
       lumafly
       archipelago
@@ -204,11 +187,6 @@
       '')
     ])
     ++ [
-      # inputs.nixpkgs-stable.${system}.sage
-      # nillapkgs.lnko.${system}
-
-      # nillapkgs.sonicmania.${system}
-
       # (pkgs.writeShellScriptBin "nomos-rebuild" ''
       #   ${
       #     pkgs.nixos-rebuild-ng.override {
@@ -268,11 +246,6 @@
                 openssl
 
                 python3
-                # (poetry.withPlugins (
-                #   ps: with ps; [
-                #     poetry-plugin-shell
-                #   ]
-                # ))
                 uv
               ]);
             profile = "export FHS=1";

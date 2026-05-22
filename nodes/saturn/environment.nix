@@ -59,9 +59,6 @@ in
         "root"
         "@wheel"
       ];
-      # plugin-files = "${
-      #   pkgs.nix-plugin-pijul.override { nix = config.nix.package; }
-      # }/lib/nix/plugins/pijul.so";
     };
     # nixPath = lib.mkForce [ "nixpkgs=flake:nixpkgs" ];
     # channel.enable = false;
@@ -150,9 +147,6 @@ in
   virtualisation.podman.enable = true;
 
   environment = {
-    # etc."containers/systemd/whoogle.container".source = ./system-containers/whoogle.container;
-    # etc."containers/systemd/pihole.container".source = ./system-containers/pihole.container;
-
     # etc."security/limits.d/95-pipewire.conf".text = ''
     #   # Default limits for users of pipewire
     #   @pipewire - rtprio 95
@@ -168,8 +162,6 @@ in
       TERMINAL = "ghostty";
       NIXOS_OZONE_WL = "1";
       NIA_OS_CONFIG = "/home/moon/Documents/pulsar";
-      # PIX_DEFSHELL = "fish";
-      # man colors
       # GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
       # FIXME: This is due to an upstream bug with Nvidia drivers.
       # GSK_RENDERER = "ngl";
@@ -184,24 +176,6 @@ in
     # pathsToLink = [ "/share/nautilus-python/extensions" ];
 
     systemPackages = with pkgs; [
-      # (writeShellApplication {
-      #   name = "nia";
-
-      #   runtimeInputs = [
-      #     just
-      #     bash
-      #     nushell
-      #     topgrade
-      #     lixPackageSets.latest.colmena
-      #     nvd
-      #     npins
-      #     nilla-cli-package
-      #   ];
-
-      #   text = ''
-      #     just --justfile /home/moon/Documents/pulsar/justfile "$@"
-      #   '';
-      # })
       nilla-cli-package
       npins
       lixPackageSets.latest.colmena

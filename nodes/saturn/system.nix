@@ -4,22 +4,6 @@
   pkgs,
   ...
 }:
-# let
-#   # The following solution is taken from https://github.com/evanjs/nixos_cfg
-#   # Recursively constructs an attrset of a given folder, recursing on directories, value of attrs is the filetype
-#   getDir =
-#     dir:
-#     lib.mapAttrs (file: type: if type == "directory" then getDir "${dir}/${file}" else type) (
-#       builtins.readDir dir
-#     );
-
-#   # Collects all files of a directory as a list of strings of paths
-#   files =
-#     dir:
-#     lib.collect lib.isPath (
-#       lib.mapAttrsRecursive (path: type: dir + ("/" + (lib.concatStringsSep "/" path))) (getDir dir)
-#     );
-# in
 {
   imports = [
     ./hardware-configuration.nix
@@ -35,8 +19,6 @@
       # systemd-boot.enable = true;
       limine = {
         enable = true;
-        # extraConfig = ''
-        # '';
         maxGenerations = 36;
         style = {
           graphicalTerminal = {
@@ -83,10 +65,6 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" ];
-
-    # extraModprobeConfig = ''
-    #   options nvidia "NVreg_EnableGpuFirmware=0"
-    # '';
   };
 
   networking = {
@@ -156,6 +134,7 @@
 
   hardware = {
     enableRedistributableFirmware = true;
+
     bluetooth.enable = true;
 
     nvidia = {
@@ -213,10 +192,9 @@
 
     dbus.implementation = "broker";
 
-    pulseaudio.enable = false;
-
     # power-profiles-daemon.enable = true;
 
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa = {
