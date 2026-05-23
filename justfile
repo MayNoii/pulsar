@@ -54,7 +54,7 @@ sync:
 
 [group("helper")]
 topgrade:
-    topgrade --disable=nix --disable=system
+    topgrade --disable=nix --disable=system --disable=git_repos
 
 [group("helper")]
 pins +ARGS:
