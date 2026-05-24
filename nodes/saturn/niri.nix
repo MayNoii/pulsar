@@ -40,6 +40,26 @@ in
     thermald.enable = true;
   };
 
+  systemd.user.services = {
+    mate-polkit = {
+      description = "MATE Polkit agent";
+
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+
+      serviceConfig = {
+        ExecStart = ''
+          ${pkgs.mate-polkit}/libexec/polkit-mate-authentication-agent-1
+        '';
+        Type = "simple";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
   programs = {
     niri = {
       enable = true;
@@ -79,6 +99,9 @@ in
 
   environment.systemPackages =
     (with pkgs; [
+      app2unit
+      xwayland-satellite
+
       adw-gtk3
       nautilus
       adwaita-icon-theme
@@ -108,11 +131,9 @@ in
       networkmanagerapplet
       bluetui
 
-      xwayland-satellite
-
-      (writers.writeBashBin "gnome-polkit" { } ''
-        ${mate-polkit}/libexec/polkit-mate-authentication-agent-1
-      '')
+      # (writers.writeBashBin "gnome-polkit" { } ''
+      #   ${mate-polkit}/libexec/polkit-mate-authentication-agent-1
+      # '')
       # soteria
     ])
     ++ [
