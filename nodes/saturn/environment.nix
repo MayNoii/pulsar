@@ -195,10 +195,6 @@ in
       # nix-eval-jobs
       just
 
-      nushell
-      carapace
-      inshellisense
-
       pv
       zip
       unzip

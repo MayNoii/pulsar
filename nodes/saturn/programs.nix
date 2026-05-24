@@ -13,7 +13,10 @@
 # in
 {
   programs = {
-    fish.enable = true;
+    fish = {
+      enable = true;
+      useBabelfish = true;
+    };
 
     zoxide.enable = true;
 
@@ -92,6 +95,10 @@
       mergiraf
       ghostty
 
+      nushell
+      carapace
+      inshellisense
+
       # markdown-oxide
       marksman
       dprint
@@ -154,7 +161,7 @@
       vivid
       dua
       wormhole-rs
-      # procs
+      procs
       # pwdsafety
       qrtool
       # sampler
@@ -249,7 +256,7 @@
                 uv
               ]);
             profile = "export FHS=1";
-            runScript = "nu";
+            runScript = "fish";
             extraOutputsToInstall = [ "dev" ];
           }
         )

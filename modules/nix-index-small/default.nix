@@ -26,26 +26,28 @@ let
         return 127
       fi
 
-      toplevel=nixpkgs # nixpkgs should always be available even in NixOS
       cmd=$1
       attrs=$(${nix-index-pkgs.nix-index-with-small-db}/bin/nix-locate --minimal --no-group --type x --type s --at-root --whole-name "/bin/$cmd")
 
       case $attrs in
         "")
-          >&2 echo "$cmd: command not found"
+          >&2 cat <<EOF
+    $(tput bold setaf 1)$cmd$(tput sgr0): command not found
+
+    EOF
           ;;
         *)
           >&2 cat <<EOF
-    The program '$cmd' is currently not installed.
-    You can run it once with comma: , $cmd
-    Or you can make it available in an ephemeral shell with:
-
+    $(tput bold setaf 1)$cmd$(tput sgr0): command not found
+    You can run it once with comma:
+      $(tput bold setaf 3), $cmd$(tput sgr0)
+    Or you can install one of the following packages:
     EOF
-          # tput bold
+          tput bold setaf 2
           while read attr; do
-            >&2 echo "  nix shell $toplevel#''${attr%'.out'}"
+            >&2 echo "    ''${attr%'.out'}"
           done <<< "$attrs"
-          # tput sgr0
+          tput sgr0
           echo
           ;;
       esac
