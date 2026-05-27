@@ -24,6 +24,12 @@ alias rb := rebuild
 alias up := upgrade
 alias s := sync
 alias top := topgrade
+alias man := manual
+alias ls := list
+alias in := inputs
+
+export MANPAGER := "less -R --use-color -Dd+m -Du+b"
+export MANROFFOPT := "-P -c"
 
 # [group("colmena")]
 # build:
@@ -35,10 +41,12 @@ alias top := topgrade
 [group("colmena")]
 rebuild +A:
     run0 colmena apply-local {{ A }}
+
 [group("colmena")]
 switch: (rebuild "switch")
+
 [group("colmena")]
-upgrade: (rebuild "boot")
+upgrade: (rebuild "boot") diff
 
 [group("colmena")]
 build:
@@ -73,5 +81,39 @@ repl:
     colmena repl
 
 [group("helper")]
-np:
-    cat ./npins/sources.json
+which BIN:
+    readlink -f $(which {{ BIN }})
+
+[group("helper")]
+closure BIN:
+    nix-tree $(readlink -f $(which {{ BIN }}))
+
+[group('info')]
+manual:
+    man configuration.nix
+
+[group('info')]
+list *F:
+    nvd list -r /nix/var/nix/profiles/system {{ F }}
+
+[group("info")]
+diff n="1":
+    #!/usr/bin/env nu
+    ls /nix/var/nix/profiles/system-*
+        | get name
+        | sort -nr
+        | dix ($in | get {{ n }}) ($in | first)
+
+[group("info")]
+inputs:
+    #!/usr/bin/env nu
+    open ./npins/sources.json | get pins | transpose name info | get name
+
+[group("info")]
+deps:
+    #!/usr/bin/env nu
+    open ./npins/sources.json | get pins | table -e
+
+[group("info")]
+tree:
+    nix-tree

@@ -86,6 +86,7 @@
       # emacs
       helix
       ruff
+      # cargo
       # nixd
       # nixfmt
       # statix

@@ -177,6 +177,7 @@ in
       topgrade
 
       nvd
+      dix
       nix-output-monitor
       nix-tree
       nixd
