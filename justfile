@@ -43,14 +43,14 @@ rebuild +A:
     run0 colmena apply-local {{ A }}
 
 [group("colmena")]
-switch: (rebuild "switch")
+switch: build (rebuild "switch")
 
 [group("colmena")]
-upgrade: (rebuild "boot") diff
+upgrade: build (rebuild "boot") diff
 
 [group("colmena")]
 build:
-    nix build --expr '(import ./saturn.nix).toplevel' --no-link --impure
+    nom build --expr '(import ./saturn.nix).toplevel' --no-link --impure
 
 # [group("system")]
 # rebuild +A:

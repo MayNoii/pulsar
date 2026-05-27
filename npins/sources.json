@@ -64,9 +64,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f680e0d3c1dbefe298c423691662e238496890f2",
-      "url": "https://github.com/nix-community/nix-index-database/archive/f680e0d3c1dbefe298c423691662e238496890f2.tar.gz",
-      "hash": "sha256-V5GquqJvAqwFTcpN6hxKSQAtwuJFRUEHmyNKbeaTQDg="
+      "revision": "8fba98c80b48fa013820e0163c5096922fea4ddd",
+      "url": "https://github.com/nix-community/nix-index-database/archive/8fba98c80b48fa013820e0163c5096922fea4ddd.tar.gz",
+      "hash": "sha256-ZQ5z+fVhxYKtIFwtqGp5O0PD84BM1riASvqDaN5Xs+s="
     },
     "nixpkgs": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "f83fc3c307e74bc5fd5adb7eb6b8b13ffd2a36e1",
-      "url": "https://github.com/nixos/nixpkgs/archive/f83fc3c307e74bc5fd5adb7eb6b8b13ffd2a36e1.tar.gz",
-      "hash": "sha256-cCO8aTqss5x9Ky8GWkpY0Hy5fyTZEbtifSUV8QjSzic="
+      "revision": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
+      "url": "https://github.com/nixos/nixpkgs/archive/64c08a7ca051951c8eae34e3e3cb1e202fe36786.tar.gz",
+      "hash": "sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o="
     }
   },
   "version": 7

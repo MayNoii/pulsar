@@ -117,6 +117,7 @@
       eza
       tealdeer
       btop
+      bottom-rs
       nitch
       macchina
       starship

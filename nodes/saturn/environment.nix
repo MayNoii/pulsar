@@ -64,17 +64,24 @@ in
     # channel.enable = false;
   };
   nixpkgs = {
-    # overlays = [
-    #   (final: prev: {
-    #     inherit (prev.lixPackageSets.latest)
-    #       nixpkgs-review
-    #       nix-eval-jobs
-    #       nix-fast-build
-    #       nix-direnv
-    #       colmena
-    #       ;
-    #   })
-    # ];
+    overlays = [
+      (final: prev: {
+        # inherit (prev.lixPackageSets.latest)
+        #   nixpkgs-review
+        #   nix-eval-jobs
+        #   nix-fast-build
+        #   nix-direnv
+        #   colmena
+        #   ;
+
+        nix-output-monitor = prev.nix-output-monitor.overrideAttrs {
+          src = final.fetchzip {
+            url = "https://code.maralorn.de/maralorn/nix-output-monitor/archive/0e855e51c1700e35456faa3dee2e50024f602f42.tar.gz";
+            hash = "sha256-8viiPvLkj0vFdG1kgcNuKXoenyTBvKd+GQ62jwbONns=";
+          };
+        };
+      })
+    ];
 
     flake.source = lib.mkForce project.inputs.nixpkgs.src;
   };
