@@ -146,6 +146,7 @@ in
             main = {
               capslock = "esc";
               esc = "capslock";
+              leftmeta = "overload(meta, macro(leftmeta+9))";
             };
           };
         };
@@ -221,6 +222,7 @@ in
       wget
       # prettyping
       doggo
+      keyd
 
       age
       mkcert
