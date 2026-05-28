@@ -136,6 +136,21 @@ in
         WHOOGLE_CONFIG_SEARCH_LANGUAGE = "lang_en";
       };
     };
+
+    keyd = {
+      enable = true;
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              capslock = "esc";
+              esc = "capslock";
+            };
+          };
+        };
+      };
+    };
   };
 
   programs = {
