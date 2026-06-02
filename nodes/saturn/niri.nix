@@ -31,6 +31,10 @@ in
       # sushi.enable = true;
     };
 
+    dunst = {
+      enable = true;
+    };
+
     gvfs.enable = true;
     upower.enable = true;
     tlp = {

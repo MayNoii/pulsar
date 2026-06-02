@@ -71,6 +71,11 @@
       webuiPort = 8080;
       torrentingPort = 14104;
     };
+
+    qui = {
+      enable = true;
+      secretFile = "/home/moon/.local/share/.quis";
+    };
   };
 
   imports = [
