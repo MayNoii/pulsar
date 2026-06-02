@@ -74,12 +74,12 @@ in
         #   colmena
         #   ;
 
-        nix-output-monitor = prev.nix-output-monitor.overrideAttrs {
-          src = final.fetchzip {
-            url = "https://code.maralorn.de/maralorn/nix-output-monitor/archive/0e855e51c1700e35456faa3dee2e50024f602f42.tar.gz";
-            hash = "sha256-8viiPvLkj0vFdG1kgcNuKXoenyTBvKd+GQ62jwbONns=";
-          };
-        };
+        # nix-output-monitor = prev.nix-output-monitor.overrideAttrs {
+        #   src = final.fetchzip {
+        #     url = "https://code.maralorn.de/maralorn/nix-output-monitor/archive/ed17b9d14258090bc4bce732f6500d38b26d3df8.tar.gz";
+        #     hash = "sha256-KlJnug3cpSb5jUIbsg95mX1w+tI5bAwBUJb4nJxCjxQ=";
+        #   };
+        # };
       })
     ];
 
