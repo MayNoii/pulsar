@@ -122,6 +122,7 @@ in
 
       vicinae
       # fuzzel
+      fsel
       awww
       dunst
       # mako
