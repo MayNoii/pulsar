@@ -7,7 +7,7 @@ help:
     BOLD="\e[1m"
     RESET="\e[0m"
 
-    echo -e "--- ${STYLE}nia${RESET} ---
+    echo -e "---- ${STYLE}nia${RESET} ----
     A collection of helpful NixOS scripts
 
     ${BOLD}Commands:${RESET}"
@@ -24,8 +24,8 @@ alias rb := rebuild
 alias up := upgrade
 alias s := sync
 alias top := topgrade
-alias man := manual
-alias ls := list
+# alias man := manual
+# alias ls := list
 alias in := inputs
 
 export MANPAGER := "less -R --use-color -Dd+m -Du+b"
@@ -62,7 +62,7 @@ sync:
 
 [group("helper")]
 topgrade:
-    topgrade --disable=nix --disable=system --disable=git_repos
+    topgrade --disable=nix --disable=system --disable=git_repos --disable=helix
 
 [group("helper")]
 pins +ARGS:
@@ -80,21 +80,21 @@ out +ARGS:
 repl:
     colmena repl
 
-[group("helper")]
-which BIN:
-    readlink -f $(which {{ BIN }})
+# [group("helper")]
+# which BIN:
+#     readlink -f $(which {{ BIN }})
 
-[group("helper")]
-closure BIN:
-    nix-tree $(readlink -f $(which {{ BIN }}))
+# [group("helper")]
+# closure BIN:
+#     nix-tree $(readlink -f $(which {{ BIN }}))
 
-[group('info')]
-manual:
-    man configuration.nix
+# [group('info')]
+# manual:
+#     man configuration.nix
 
-[group('info')]
-list *F:
-    nvd list -r /nix/var/nix/profiles/system {{ F }}
+# [group('info')]
+# list *F:
+#     nvd list -r /nix/var/nix/profiles/system {{ F }}
 
 [group("info")]
 diff n="1":
