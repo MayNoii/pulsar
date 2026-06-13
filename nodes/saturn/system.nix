@@ -12,6 +12,10 @@
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
+  virtualisation.waydroid = {
+    enable = true;
+    package = pkgs.waydroid-nftables;
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -162,7 +166,7 @@
 
   services = {
     adguardhome = {
-      enable = true;
+      # enable = true;
       mutableSettings = true;
       allowDHCP = true;
       host = "127.0.0.1";
