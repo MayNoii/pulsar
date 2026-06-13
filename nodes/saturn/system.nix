@@ -139,7 +139,18 @@
   hardware = {
     enableRedistributableFirmware = true;
 
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      # These settings enable LE audio, but I don't have a recent enough
+      # Bluetooth adapter...
+      # settings = {
+      #   General = {
+      #     ControllerMode = "le";
+      #     Experimental = true;
+      #     KernelExperimental = "6fbaf188-05e0-496a-9885-d6ddfdb4e03e";
+      #   };
+      # };
+    };
 
     nvidia = {
       open = true;
