@@ -132,15 +132,18 @@ in
     };
     packages = with pkgs; [
       atkinson-hyperlegible-next
-      atkinson-hyperlegible-mono
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
       maple-mono.truetype
+      julia-mono
       font-awesome
       adwaita-fonts
       libertinus
       # newcomputermodern
+      texlivePackages.concmath-otf
+      texlivePackages.euler-math
+      texlivePackages.luciole
     ];
   };
 
