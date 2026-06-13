@@ -1,8 +1,8 @@
 {
   lib,
   icoutils,
-  # stdenv,
-  clangStdenv,
+  stdenv,
+  # clangStdenv,
   autoPatchelfHook,
   makeDesktopItem,
   writeShellApplication,
@@ -15,9 +15,14 @@
   libtheora,
   zlib,
   SDL2,
-  tinyxml2,
+  tinyxml,
   asio,
-  xorg,
+  libXext,
+  libXrandr,
+  libXfixes,
+  libXi,
+  libXScrnSaver,
+  libXcursor,
   libX11,
   libpulseaudio,
   vulkan-loader,
@@ -32,7 +37,7 @@
 }:
 
 let
-  stdenv = clangStdenv;
+  # stdenv = clangStdenv;
   # desktopIcon = ''
   #   [Desktop Entry]
   #   Type=Application
@@ -103,8 +108,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "RSDKModding";
     repo = "Sonic-Mania-Decompilation";
-    rev = "8795c5af1ec925152b383bd8ddb68e49a52b15ae";
-    hash = "sha256-9+tRiY0lPC3sfdEtEOEI13V1UmyMbjaWj0TpnDeK2vU=";
+    rev = "9dc699428420d752af9767bdb13f585ee0881bc0";
+    hash = "sha256-YynUX2VTT7IsW/gaBFCj1A1xixlweAWYrTMhMxK6HaA=";
     fetchSubmodules = true;
   };
 
@@ -114,15 +119,15 @@ stdenv.mkDerivation {
     libtheora
     zlib
     SDL2
-    tinyxml2
+    tinyxml
     asio
-    xorg.libXext
-    xorg.libXrandr
     libX11
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXScrnSaver
-    xorg.libXcursor
+    libXext
+    libXrandr
+    libXfixes
+    libXi
+    libXScrnSaver
+    libXcursor
     vulkan-loader
     vulkan-headers
     vulkan-validation-layers
@@ -142,7 +147,7 @@ stdenv.mkDerivation {
 
   cmakeFlags = [
     "-Bbuild"
-    "-DRETRO_SUBSYSTEM=VK"
+    # "-DRETRO_SUBSYSTEM=VK"
     # "-DCMAKE_CXX_FLAGS=-U_FORTIFY_SOURCE"
     # "-DCMAKE_CXX_FLAGS='-D_FORTIFY_SOURCE=0'"
   ];

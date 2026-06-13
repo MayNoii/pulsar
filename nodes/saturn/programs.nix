@@ -191,9 +191,9 @@
 
       sm64coopdx
       ringracers
+      prismlauncher
       lumafly
       archipelago
-      # nova.apotris
 
       (writers.writeHaskellBin "missiles" { libraries = [ haskellPackages.acme-missiles ]; } ''
         import Acme.Missiles
@@ -216,12 +216,15 @@
       #     }
       #   }/bin/nixos-rebuild-ng "$@"
       # '')
+      # nillapkgs.sonicmania.${system}
 
       (pkgs.vscodium.fhsWithPackages (
         pkgs: with pkgs; [
           nixfmt
           statix
           nixd
+
+          elan
 
           glib
           zlib
@@ -263,7 +266,7 @@
                 uv
               ]);
             profile = "export FHS=1";
-            runScript = "fish";
+            runScript = "nu";
             extraOutputsToInstall = [ "dev" ];
           }
         )
