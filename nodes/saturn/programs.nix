@@ -80,7 +80,7 @@
 
   imports = [
     # ./neovim.nix
-    ./media.nix
+    # ./media.nix
     # ./glance.nix
   ];
 
@@ -110,7 +110,7 @@
       dprint
       libreoffice
       # obsidian
-      vlc
+      celluloid
 
       wl-clipboard-rs
       bat

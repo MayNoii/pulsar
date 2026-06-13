@@ -112,7 +112,6 @@ in
       adwaita-icon-theme-legacy
       xprop
 
-      decibels
       loupe
       papers
       # gnome-secrets
