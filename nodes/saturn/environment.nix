@@ -96,9 +96,14 @@ in
               hash = "sha256-G1wfue1Q+3NMH/5NqPVKeO0NpU0WJlwWkh51r3TM5IM=";
             };
           }
-
         );
+
+        # nix-output-monitor = final.haskell.lib.justStaticExecutables (
+        #   final.haskellPackages.callPackage inputs.nix-output-monitor { }
+        # );
       })
+
+      inputs.nix-output-monitor.overlays.default
     ];
 
     flake.source = lib.mkForce project.inputs.nixpkgs.src;

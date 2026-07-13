@@ -19,8 +19,8 @@ let
     nix-index-database = "legacy";
     lix-module = "raw";
     ignis = "flake";
-    # niri-flake = "flake";
     flake-compat = "legacy";
+    nix-output-monitor = "flake";
   };
 
   settings = {
@@ -37,6 +37,8 @@ let
         nixpkgs = nixpkgs-flake;
       };
     };
+
+    nix-output-monitor = settings.ignis;
 
     # nixpkgs-stable = settings.nixpkgs;
   };
