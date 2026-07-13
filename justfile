@@ -26,7 +26,7 @@ alias s := sync
 alias top := topgrade
 # alias man := manual
 # alias ls := list
-alias in := inputs
+# alias in := inputs
 
 export MANPAGER := "less -R --use-color -Dd+m -Du+b"
 export MANROFFOPT := "-P -c"
@@ -43,10 +43,10 @@ rebuild +A:
     run0 colmena apply-local {{ A }}
 
 [group("colmena")]
-switch: build (rebuild "switch")
+switch: build (rebuild "switch") diff
 
 [group("colmena")]
-upgrade: build (rebuild "boot") diff
+upgrade: build (rebuild "boot") topgrade diff
 
 [group("colmena")]
 build:
@@ -102,17 +102,22 @@ diff n="1":
     ls /nix/var/nix/profiles/system-*
         | get name
         | sort -nr
-        | dix ($in | get {{ n }}) ($in | first)
+        | nvd diff ($in | get {{ n }}) ($in | first)
+
+# [group("info")]
+# inputs:
+#     #!/usr/bin/env nu
+#     open ./npins/sources.json | get pins | transpose name info | get name
+
+# [group("info")]
+# deps:
+#     #!/usr/bin/env nu
+#     open ./npins/sources.json | get pins | table -e
 
 [group("info")]
-inputs:
-    #!/usr/bin/env nu
-    open ./npins/sources.json | get pins | transpose name info | get name
-
-[group("info")]
-deps:
-    #!/usr/bin/env nu
-    open ./npins/sources.json | get pins | table -e
+np:
+    #!/bin/sh
+    cat ./npins/sources.json
 
 [group("info")]
 tree:

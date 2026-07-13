@@ -145,7 +145,7 @@ in
       font-awesome
       adwaita-fonts
       libertinus
-      # newcomputermodern
+      newcomputermodern
       texlivePackages.concmath-otf
       texlivePackages.euler-math
       texlivePackages.luciole
@@ -207,8 +207,6 @@ in
       NIXOS_OZONE_WL = "1";
       NIA_OS_CONFIG = "/home/moon/Documents/pulsar";
       # GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
-      # FIXME: This is due to an upstream bug with Nvidia drivers.
-      # GSK_RENDERER = "ngl";
 
       COMMA_PICKER = "fzf";
 

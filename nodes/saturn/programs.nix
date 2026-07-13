@@ -172,7 +172,7 @@
       # pwdsafety
       qrtool
       # sampler
-      serie
+      # serie
       typioca
       wiremix
       yazi
