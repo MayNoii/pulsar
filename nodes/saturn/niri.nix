@@ -68,19 +68,6 @@ in
     niri = {
       enable = true;
       useNautilus = true;
-      # [FIXME] Remove this 
-      package = pkgs.niri.override {
-        libdisplay-info = pkgs.libdisplay-info.overrideAttrs (finalAttrs: {
-          version = "0.3.0";
-          src = pkgs.fetchFromGitLab {
-            domain = "gitlab.freedesktop.org";
-            owner = "emersion";
-            repo = "libdisplay-info";
-            rev = finalAttrs.version;
-            sha256 = "sha256-nXf2KGovNKvcchlHlzKBkAOeySMJXgxMpbi5z9gLrdc=";
-          };
-        });
-      };
       # package = inputs.niri-flake.packages.${system}.niri-unstable;
       # package = pkgs.niri.overrideAttrs (
       #   finalAttrs: previousAttrs: rec {
@@ -138,7 +125,7 @@ in
 
       vicinae
       # fuzzel
-      fsel
+      # fsel
       awww
       dunst
       # mako
@@ -162,7 +149,7 @@ in
     ++ [
       (inputs.ignis.packages.${system}.ignis.override {
         enableAudioService = true;
-        enableBluetoothService = true;
+        enableBluetoothService = false;
         useGrassSass = true;
         extraPackages = with pkgs; [
           libevdev

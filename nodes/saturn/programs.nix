@@ -4,13 +4,13 @@
   pkgs,
   # system,
   # project,
-  # inputs,
+  inputs,
   # nillapkgs,
   ...
 }:
-# let
-#   system = pkgs.stdenv.hostPlatform.system;
-# in
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
   programs = {
     fish = {
@@ -195,10 +195,10 @@
       lumafly
       archipelago
 
-      (writers.writeHaskellBin "missiles" { libraries = [ haskellPackages.acme-missiles ]; } ''
-        import Acme.Missiles
-        main = launchMissiles
-      '')
+      # (writers.writeHaskellBin "missiles" { libraries = [ haskellPackages.acme-missiles ]; } ''
+      #   import Acme.Missiles
+      #   main = launchMissiles
+      # '')
     ])
     ++ [
       # (pkgs.writeShellScriptBin "nomos-rebuild" ''

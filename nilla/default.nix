@@ -20,7 +20,6 @@ let
     lix-module = "raw";
     ignis = "flake";
     flake-compat = "legacy";
-    nix-output-monitor = "flake";
     ghostty = "flake";
   };
 
@@ -39,7 +38,7 @@ let
       };
     };
 
-    nix-output-monitor = settings.ignis;
+    # ghostty = settings.ignis;
 
     # nixpkgs-stable = settings.nixpkgs;
   };

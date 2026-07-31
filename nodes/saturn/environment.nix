@@ -83,29 +83,28 @@ in
         #   };
         # };
 
-        fsel = prev.fsel.overrideAttrs (
-          finalAttrs: previousAttrs: rec {
-            name = "fsel-${version}";
-            version = "3.5.1";
-            src = final.fetchFromGitHub {
-              owner = "Mjoyufull";
-              repo = "fsel";
-              tag = "3.5.1";
-              hash = "sha256-g4LWJrY62VJ0qN/n+eoPt3uL7b4fLtGoDAT86I9jbco=";
-            };
-            cargoDeps = final.rustPlatform.fetchCargoVendor {
-              inherit name src;
-              hash = "sha256-G1wfue1Q+3NMH/5NqPVKeO0NpU0WJlwWkh51r3TM5IM=";
-            };
-          }
-        );
+        # fsel = prev.fsel.overrideAttrs (
+        #   finalAttrs: previousAttrs: rec {
+        #     name = "fsel-${version}";
+        #     version = "3.5.1";
+        #     src = final.fetchFromGitHub {
+        #       owner = "Mjoyufull";
+        #       repo = "fsel";
+        #       tag = "3.5.1";
+        #       hash = "sha256-g4LWJrY62VJ0qN/n+eoPt3uL7b4fLtGoDAT86I9jbco=";
+        #     };
+        #     cargoDeps = final.rustPlatform.fetchCargoVendor {
+        #       inherit name src;
+        #       hash = "sha256-G1wfue1Q+3NMH/5NqPVKeO0NpU0WJlwWkh51r3TM5IM=";
+        #     };
+        #   }
+        # );
 
         # nix-output-monitor = final.haskell.lib.justStaticExecutables (
         #   final.haskellPackages.callPackage inputs.nix-output-monitor { }
         # );
       })
 
-      inputs.nix-output-monitor.overlays.default
       inputs.ghostty.overlays.default
     ];
 
