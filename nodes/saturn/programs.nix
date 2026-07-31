@@ -217,6 +217,7 @@
       #   }/bin/nixos-rebuild-ng "$@"
       # '')
       # nillapkgs.sonicmania.${system}
+      # inputs.ghostty.packages.${system}.default
 
       (pkgs.vscodium.fhsWithPackages (
         pkgs: with pkgs; [

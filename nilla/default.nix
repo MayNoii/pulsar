@@ -21,6 +21,7 @@ let
     ignis = "flake";
     flake-compat = "legacy";
     nix-output-monitor = "flake";
+    ghostty = "flake";
   };
 
   settings = {
