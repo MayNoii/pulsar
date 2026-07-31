@@ -203,7 +203,7 @@ in
     };
     variables = {
       EDITOR = "hx";
-      TERMINAL = "ghostty";
+      TERMINAL = "xdg-terminal-exec";
       NIXOS_OZONE_WL = "1";
       NIA_OS_CONFIG = "/home/moon/Documents/pulsar";
       NH_ELEVATION_STRATEGY = "run0";

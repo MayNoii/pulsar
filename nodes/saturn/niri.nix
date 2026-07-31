@@ -152,6 +152,12 @@ in
       #   ${mate-polkit}/libexec/polkit-mate-authentication-agent-1
       # '')
       # soteria
+
+      handlr-regex
+
+      (writeShellScriptBin "xdg-open" ''
+        exec ${handlr-regex}/bin/handlr open "$@"
+      '')
     ])
     ++ [
       (inputs.ignis.packages.${system}.ignis.override {
@@ -167,12 +173,16 @@ in
       nillapkgs.goignis.${system}
     ];
 
-  xdg.terminal-exec = {
-    enable = true;
-    settings = {
-      default = [
-        "com.mitchellh.ghostty"
-      ];
+  xdg = {
+    icons.fallbackCursorThemes = [ "adwaita" ];
+    terminal-exec = {
+      enable = true;
+      settings = {
+        default = [
+          "/execarg_default:com.mitchellh.ghostty.desktop:+new-window -e"
+          "com.mitchellh.ghostty.desktop:new-window"
+        ];
+      };
     };
   };
 
