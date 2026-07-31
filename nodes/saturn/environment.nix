@@ -206,6 +206,8 @@ in
       TERMINAL = "ghostty";
       NIXOS_OZONE_WL = "1";
       NIA_OS_CONFIG = "/home/moon/Documents/pulsar";
+      NH_ELEVATION_STRATEGY = "run0";
+      NH_FILE = "/home/moon/Documents/pulsar/saturn.nix";
       # GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
 
       COMMA_PICKER = "fzf";
@@ -220,7 +222,8 @@ in
     systemPackages = with pkgs; [
       nilla-cli-package
       npins
-      lixPackageSets.latest.colmena
+      # lixPackageSets.latest.colmena
+      nh
       topgrade
 
       nvd

@@ -15,46 +15,31 @@ help:
     just --list --unsorted --list-heading ''
     echo
 
-# alias b := build
-# alias a := apply
-# alias d := deploy
-
-alias b := build
-alias rb := rebuild
-alias up := upgrade
 alias s := sync
 alias top := topgrade
-# alias man := manual
-# alias ls := list
-# alias in := inputs
 
 export MANPAGER := "less -R --use-color -Dd+m -Du+b"
 export MANROFFOPT := "-P -c"
 
-# [group("colmena")]
-# build:
-#     colmena build --evaluator streaming
-# [group("colmena")]
-# apply TYPE:
-#     colmena apply --evaluator streaming {{ TYPE }}
+[group("system")]
+switch *A:
+    nh os switch {{ A }} -f saturn.nix -e run0 -a
 
-[group("colmena")]
-rebuild +A:
-    run0 colmena apply-local {{ A }}
+[group("system")]
+boot *A:
+    nh os boot {{ A }} -f saturn.nix -e run0 -a
 
-[group("colmena")]
-switch: build (rebuild "switch") diff
+[group("system")]
+test *A:
+    nh os test {{ A }} -f saturn.nix -e run0 -a
 
-[group("colmena")]
-upgrade: build (rebuild "boot") topgrade diff
+[group("system")]
+build *A:
+    nh os build {{ A }} -f saturn.nix -e run0 -a
 
-[group("colmena")]
-build:
-    nom build --expr '(import ./saturn.nix).toplevel' --no-link --impure
-
-# [group("system")]
-# rebuild +A:
-#     run0 nixos-rebuild {{ A }} -f saturn.nix --no-flake
+[group("system")]
+repl *A:
+    nh os repl {{ A }} -f saturn.nix -e run0
 
 [group("helper")]
 sync:
@@ -69,32 +54,8 @@ pins +ARGS:
     npins {{ ARGS }}
 
 [group("helper")]
-col +ARGS:
-    colmena {{ ARGS }}
-
-[group("helper")]
 out +ARGS:
     nilla {{ ARGS }}
-
-[group("helper")]
-repl:
-    colmena repl
-
-# [group("helper")]
-# which BIN:
-#     readlink -f $(which {{ BIN }})
-
-# [group("helper")]
-# closure BIN:
-#     nix-tree $(readlink -f $(which {{ BIN }}))
-
-# [group('info')]
-# manual:
-#     man configuration.nix
-
-# [group('info')]
-# list *F:
-#     nvd list -r /nix/var/nix/profiles/system {{ F }}
 
 [group("info")]
 diff n="1":
@@ -102,17 +63,7 @@ diff n="1":
     ls /nix/var/nix/profiles/system-*
         | get name
         | sort -nr
-        | nvd diff ($in | get {{ n }}) ($in | first)
-
-# [group("info")]
-# inputs:
-#     #!/usr/bin/env nu
-#     open ./npins/sources.json | get pins | transpose name info | get name
-
-# [group("info")]
-# deps:
-#     #!/usr/bin/env nu
-#     open ./npins/sources.json | get pins | table -e
+        | dix ($in | get {{ n }}) ($in | first)
 
 [group("info")]
 np:
