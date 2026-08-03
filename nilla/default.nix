@@ -38,7 +38,7 @@ let
       };
     };
 
-    # ghostty = settings.ignis;
+    ghostty = settings.ignis;
 
     # nixpkgs-stable = settings.nixpkgs;
   };

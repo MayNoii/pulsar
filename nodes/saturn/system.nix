@@ -48,19 +48,6 @@
           ];
         };
         extraEntries = ''
-          /Arch Linux
-          //Primary
-              protocol: linux
-              path: boot():/vmlinuz-linux
-              cmdline: cryptdevice=UUID=e81fa56a-9b2b-472f-b802-a45bee8c19df:cryptlvm root=/dev/archvg/root rootfstype=btrfs add_efi_memmap
-              module_path: boot():/initramfs-linux.img
-
-          //Alternate
-              protocol: linux
-              path: boot():/vmlinuz-linux
-              cmdline: cryptdevice=UUID=Jut9J3-BKvM-5OvL-XVO5-Hf9C-USr6-BWQlZl:cryptlvm root=/dev/archvg/root rootfstype=btrfs add_efi_memmap
-              module_path: boot():/initramfs-linux.img
-
           /Windows
               protocol: efi
               path: uuid(dc993828-fbae-4c9d-952f-ec00ea0f737e):/EFI/Microsoft/Boot/bootmgfw.efi

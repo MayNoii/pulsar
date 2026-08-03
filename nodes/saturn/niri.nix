@@ -103,7 +103,9 @@ in
 
   environment.systemPackages =
     (with pkgs; [
-      app2unit
+      glib.bin
+
+      # app2unit
       xwayland-satellite
 
       adw-gtk3

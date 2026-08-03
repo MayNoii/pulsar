@@ -4,13 +4,13 @@
   pkgs,
   # system,
   # project,
-  inputs,
+  # inputs,
   # nillapkgs,
   ...
 }:
-let
-  system = pkgs.stdenv.hostPlatform.system;
-in
+# let
+#   system = pkgs.stdenv.hostPlatform.system;
+# in
 {
   programs = {
     fish = {
@@ -256,7 +256,6 @@ in
                 cmake
                 libtool
                 ncurses
-                pkg-config
                 zlib
                 gcc
                 gnumake

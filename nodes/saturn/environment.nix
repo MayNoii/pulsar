@@ -188,6 +188,7 @@ in
       enable = true;
       extraBins = true;
     };
+    # nix-ld.enable = true;
   };
 
   virtualisation.podman.enable = true;
