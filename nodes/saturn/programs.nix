@@ -88,6 +88,11 @@
     (with pkgs; [
       # isd
       vim
+      neovim
+      lua-language-server
+      stylua
+      tree-sitter
+      elan
       # emacs
       helix
       ruff
