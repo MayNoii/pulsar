@@ -13,7 +13,7 @@
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
   virtualisation.waydroid = {
-    enable = true;
+    # enable = true;
     package = pkgs.waydroid-nftables;
   };
 
@@ -287,6 +287,9 @@
   environment.systemPackages = with pkgs; [
     # gnome-boxes
     dualsensectl
+
+    proton-vpn
+    proton-vpn-cli
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
