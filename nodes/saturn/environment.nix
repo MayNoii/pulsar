@@ -205,7 +205,7 @@ in
       # NAUTILUS_4_EXTENSION_DIR = lib.mkForce "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
     };
     variables = {
-      EDITOR = "hx";
+      EDITOR = "nvim";
       TERMINAL = "xdg-terminal-exec";
       NIXOS_OZONE_WL = "1";
       NIA_OS_CONFIG = "/home/moon/Documents/pulsar";
